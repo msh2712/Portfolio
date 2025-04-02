@@ -1,0 +1,67 @@
+.btntoggle {
+  position: absolute;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.dark .btntoggle {
+  color: rgb(250, 249, 249);
+}
+
+.users h6 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-left: 14px;
+  margin-right: 15PX;
+  color: black;
+}
+
+.users {
+  background-color: rgb(249, 248, 248);
+  border: 2px solid black;
+  width: 170px;
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.users b {
+  color: black;
+}
+
+.bodycolour {
+  background: linear-gradient(to right, #e9fafc, #cdcff1);
+  color: #fafafa;
+}
+
+.dark .users {
+  background-color: black;
+  border: 2px solid white;
+}
+
+.dark .users h6 {
+  color: white;
+}
+
+.dark .users b {
+  color: white;
+}
+
+.dark .bodycolour {
+  background: black;
+  color: #161616;
+}
+.btn-close{
+  background-color: rgb(253, 252, 252);
+  border-radius: 15px;
+}

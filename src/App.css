@@ -1,38 +1,286 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --background-color-light: linear-gradient(to right, #cef4f9, #e4ffe4);
+  --text-color-light: rgb(10, 10, 10);
+  --background-color-dark: #232325;
+  --text-color-dark: #f5f5f5;
+  --background-color-mobile :linear-gradient(to right, #e9fafc, #cdcff1);
+  --background-dark-mobile:  #232325;
+}
+/* --background-color-mobile :linear-gradient(to right, #e9fafc, #c9f7c9); */
+
+.dark {
+  background: var(--background-color-dark);
+  color: var(--text-color-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.light {
+  background: var(--background-color-light);
+  color: var(--text-color-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (max-width: 576px) {
+  .dark {
+    background: var(--background-dark-mobile);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .light {
+    background: var(--background-color-mobile);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+body{
+  width: 100%;
+  height: 100%;
+  color: #232325;
+  overflow: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.home{
+  width: 90%;
+}
+::-webkit-scrollbar{
+  display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.textlogo{
+  font-family: "Pacifico", cursive;
+  font-weight: 50;
+  margin: 0;
+}
+.mshcolour{
+  color: #850f70;
+}
+
+
+.textabout h5{
+  position: absolute;
+  font-size: 3.5rem;
+  color: rgb(46, 211, 248);
+  top:80px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 2px;
+}
+
+.textabout h5:nth-child(1){
+  color: transparent;
+  -webkit-text-stroke: 2px  #0f0f0f;
+}
+
+.dark  .textabout h5:nth-child(1){
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(248, 245, 245);
+}
+
+.textabout h5:nth-child(2){
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate{
+  0%, 100%{
+   clip-path: polygon(0% 47%, 19% 43%, 34% 48%, 51% 53%, 69% 55%, 88% 52%, 100% 45%, 100% 100%, 0% 100%)
+  }
+  
+  50%{
+    clip-path: polygon(0% 47%, 18% 55%, 33% 57%, 52% 53%, 69% 46%, 85% 43%, 100% 48%, 100% 100%, 0% 100%)
+  }
+}
+
+
+.aboutss {
+  position: relative;
+  overflow: hidden;
+  animation: apper linear; 
+  animation-timeline: view(); 
+  animation-range: entry 0 cover 20%; 
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes apper {
+  from{
+      opacity: 0; 
+      scale: 0.5; 
   }
   to {
-    transform: rotate(360deg);
+      opacity: 1;
+      scale: 1;    
   }
 }
+
+.bubbly-button {
+  font-family: "Teko", sans-serif;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+  -webkit-appearance: none;
+  font-size: 22px;
+  padding: 0px 20px;
+  padding-top: 3px;
+  appearance: none;
+  background-color: #073f13; /* Fuchsia */
+  color: #fff; /* White */
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+}
+
+
+
+
+.bubbly-button:focus {
+  outline: 0;
+}
+
+.bubbly-button:before,
+.bubbly-button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+.bubbly-button:before {
+  display: none;
+  top: -75%;
+  background-image:  
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%), 
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.bubbly-button:after {
+  display: none;
+  bottom: -75%;
+  background-image:  
+    radial-gradient(circle, #ff0081 20%, transparent 20%), 
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.bubbly-button:active {
+  transform: scale(0.9);
+  background-color: #e60073; /* Darkened Fuchsia */
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+
+.bubbly-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+
+.bubbly-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 13px;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+
+.scroll-to-top:hover {
+  background-color: #555;
+  color: white;
+  opacity: 1;
+}
+
+.scroll-to-top:focus {
+  outline: none;
+}
+
+.active{
+  color: rgb(43, 178, 126);
+}
+
+.iconsfooter {
+  background: linear-gradient(to right, #cef4f9, #e4ffe4);;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.backfooter{
+  background-color: #0f0f0f;}
+
+  .textabout span{
+    color: #cd9cf2;
+  }
+
+  a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+  }

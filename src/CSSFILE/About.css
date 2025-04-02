@@ -1,0 +1,81 @@
+
+.info{
+    color: rgb(113, 114, 114);
+    font-family: "Cinzel", serif;
+    font-size: 1.1rem;
+}  
+@keyframes morphShape {
+    0% {
+      border-radius: 94% 31% 30% 67% / 67% 37% 56% 34%;
+    }
+    25% {
+      border-radius: 60% 40% 80% 50% / 70% 80% 40% 60%;
+    }
+    50% {
+      border-radius: 85% 50% 20% 70% / 30% 70% 60% 40%;
+    }
+    75% {
+      border-radius: 75% 60% 50% 50% / 80% 50% 40% 60%;
+    }
+    100% {
+      border-radius: 94% 31% 30% 67% / 67% 37% 56% 34%;
+    }
+  }
+  
+  @keyframes morphEggShape {
+    0% {
+      border-radius: 30% 91% 30% 67% / 67% 37% 56% 34%; 
+    }
+    20% {
+      border-radius: 45% 80% 40% 70% / 70% 60% 40% 30%; 
+    }
+    40% {
+      border-radius: 33% 75% 30% 60% / 75% 60% 50% 45%; 
+    }
+    60% {
+      border-radius: 30% 70% 35% 65% / 70% 55% 55% 45%; 
+    }
+    80% {
+      border-radius: 46% 60% 35% 60% / 75% 60% 58% 32%; 
+    }
+    100% {
+      border-radius: 34% 51% 30% 67% / 67% 37% 56% 34%; 
+    }
+  }
+
+  .textfont{
+    font-family: "Cinzel", serif;
+  }
+  
+  .blob {
+    width: 65%;
+    height: 95%;
+    background-image: linear-gradient(to top, #cf9df4 0%, #eee8f9 100%);
+    animation: morphEggShape 10s ease-in-out infinite;
+  }
+
+
+
+  @media (max-width: 576px) {
+    .info{
+        font-size: 14px;
+    } 
+    .blob{
+        width: 80%;
+    }
+  }
+  @media (min-width: 700px) and (max-width: 1050px) {
+   
+    .blob{
+      width: 85%;
+  }
+  }
+  
+
+
+  .msname{
+    font-family: serif;
+  }
+
+  
+  

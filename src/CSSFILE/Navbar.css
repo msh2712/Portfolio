@@ -1,0 +1,35 @@
+.nav {
+    width: 90%;
+    margin-top: 40px;
+    border-radius: 10px;
+    height: 50px;
+    background-image: linear-gradient(-225deg, #a5f6de 0%, #FFE6FA 100%);
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dark .nav{
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+    background-blend-mode: multiply; 
+}
+
+.h6c {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0px;
+    cursor: pointer;
+}
+.hi{
+    cursor: pointer;
+}
+
+.span {
+    font-family: "Archivo Black", sans-serif;
+}
+
+  .loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
