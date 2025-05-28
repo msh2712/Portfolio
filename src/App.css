@@ -9,7 +9,7 @@
   --text-color-light: rgb(10, 10, 10);
   --background-color-dark: #232325;
   --text-color-dark: #f5f5f5;
-  --background-color-mobile :linear-gradient(to right, #e9fafc, #cdcff1);
+ --background-color-light: linear-gradient(to right, #cef4f9, #e4ffe4);
   --background-dark-mobile:  #232325;
 }
 /* --background-color-mobile :linear-gradient(to right, #e9fafc, #c9f7c9); */
@@ -100,7 +100,7 @@ body{
 .aboutss {
   position: relative;
   overflow: hidden;
-  animation: apper linear; 
+  animation: apper linear !important;
   animation-timeline: view(); 
   animation-range: entry 0 cover 20%; 
 }
