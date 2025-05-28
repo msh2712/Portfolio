@@ -21,18 +21,20 @@
 }
 
 .light {
-  background: var(--background-color-light, linear-gradient(to right, #cef4f9, #e4ffe4));
-  color: var(--text-color-light, #0a0a0a);
+  background: var(--background-color-light);
+  color: var(--text-color-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 @media (max-width: 576px) {
   .dark {
     background: var(--background-dark-mobile);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
- .light {
-    background: white;
+  .light {
+    background: var(--background-color-mobile);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -98,7 +100,7 @@ body{
 .aboutss {
   position: relative;
   overflow: hidden;
-  animation: apper linear !important;
+  animation: apper linear; 
   animation-timeline: view(); 
   animation-range: entry 0 cover 20%; 
 }
