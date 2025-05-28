@@ -8,7 +8,7 @@ function Skill() {
             <h1 className=' aboutss text-center my-2 my-md-4 py-5 textabout'>
             My <span>SKILL</span>
             </h1>
-    <div className="row d-flex justify-content-center align-items-center">
+    <div className="row d-flex mt-2 mt-md-0 justify-content-center align-items-center">
         <div className="col-md-6">
             <div className='ms-3 xml aboutss'><b>HTML</b></div>
             <div className="progress-outer">
