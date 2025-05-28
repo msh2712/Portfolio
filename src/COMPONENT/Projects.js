@@ -14,7 +14,7 @@ function Projects() {
     return (
        <section id='projects'>
          <div className="container">
-        <h1 className=' aboutss text-center my-mb-4 py-5 my-3 textabout'>
+        <h1 className=' aboutss text-center my-mb-4 py-5 my-2 textabout'>
             MY <span>PROJECT</span>
             </h1>
             <div className="row row-cols-1 mt-2 row-cols-md-3 g-4 px-3 px-sm-0">
