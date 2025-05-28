@@ -5,7 +5,7 @@ function Skill() {
   return (
  <section id='skills'>
     <div className="container px-5 mt-4">
-            <h1 className=' aboutss text-center my-md-4 py-5 textabout'>
+            <h1 className=' aboutss text-center my-2 my-md-4 py-5 textabout'>
             My <span>SKILL</span>
             </h1>
     <div className="row d-flex justify-content-center align-items-center">
