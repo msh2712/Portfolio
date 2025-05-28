@@ -5,7 +5,7 @@ import { scrollToSection } from './../utils/scrollToSection';
 function About() {
   return (
  <section id='about'>
-     <div className='w-100 hight my-3 pt-2 pt-md-5 py-2 d-flex justify-content-center align-items-center flex-column'>
+     <div className='w-100 hight my-3 mb-4 pt-2 pt-md-5 py-2 d-flex justify-content-center align-items-center flex-column'>
         <h1 className='text-center d-block d-md-none py-5 textabout'>ABOUT<span>US</span></h1>
                <div className=' h-auto w-100 px-2 px-md-5 home row'>
                    <div className=' aboutss col-12 col-md-6 d-flex justify-content-center align-items-center'>
