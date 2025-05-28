@@ -127,6 +127,7 @@
 }
 
 
+
 @media (min-width: 765px) and (max-width: 1080px) {
   .msh {
       font-size: 2.3rem; 
@@ -143,6 +144,11 @@
   height: 50vh;
 }
 }
+@media (min-width: 1082px) and (max-width: 1299px) {
+ .hometext{
+  height: 85vh;
+}
+}
 @media (min-width: 1300px) and (max-width: 1500px) {
   .msh {
       font-size: 4.3rem; 
@@ -156,13 +162,9 @@
     width: 65%;
  }
  .hometext{
-  height: 50vh;
+  height: 75vh;
 }
 }
-
-
-
-
 
 .patil27 {
   animation: mshpatil 2s ease-in-out , colorChange 5s 4s ease-in-out infinite;
