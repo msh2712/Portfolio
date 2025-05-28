@@ -32,7 +32,7 @@
   }
   
  .light {
-    background: var(--background-color-mobile, linear-gradient(to right, #e9fafc, #cdcff1));
+    background: white;
   }
 }
 
