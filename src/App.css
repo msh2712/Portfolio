@@ -21,20 +21,18 @@
 }
 
 .light {
-  background: var(--background-color-light);
-  color: var(--text-color-light);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--background-color-light, linear-gradient(to right, #cef4f9, #e4ffe4));
+  color: var(--text-color-light, #0a0a0a);
 }
+
 
 @media (max-width: 576px) {
   .dark {
     background: var(--background-dark-mobile);
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  .light {
-    background: var(--background-color-mobile);
-    transition: background-color 0.3s ease, color 0.3s ease;
+ .light {
+    background: var(--background-color-mobile, linear-gradient(to right, #e9fafc, #cdcff1));
   }
 }
 
