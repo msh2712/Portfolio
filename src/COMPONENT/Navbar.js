@@ -59,25 +59,25 @@ function Navbar() {
             <div className="d-flex gap-4 gap-lg-5 pe-5 align-items-center">
               <h6
                 className={`m-0 h6c ${activeSection === 'Home' ? 'active' : ''}`}
-                onClick={() => scrollToSection('Home')} // Use utility function
+                onClick={() => scrollToSection('Home')} 
               >
                 HOME
               </h6>
               <h6
                 className={`m-0 h6c ${activeSection === 'about' ? 'active' : ''}`}
-                onClick={() => scrollToSection('about')} // Use utility function
+                onClick={() => scrollToSection('about')} 
               >
                 ABOUT
               </h6>
               <h6
                 className={`m-0 h6c ${activeSection === 'skills' ? 'active' : ''}`}
-                onClick={() => scrollToSection('skills')} // Use utility function
+                onClick={() => scrollToSection('skills')} 
               >
                 SKILL
               </h6>
               <h6
                 className={`m-0 h6c ${activeSection === 'projects' ? 'active' : ''}`}
-                onClick={() => scrollToSection('projects')} // Use utility function
+                onClick={() => scrollToSection('projects')} 
               >
                 PROJECT
               </h6>

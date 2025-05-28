@@ -91,10 +91,10 @@
 
 @media (max-width: 576px) {
   .msh {
-      font-size: 2rem; 
+      font-size: 2.3rem; 
   }
   .hometext{
-    height: 55vh;
+    height: 63vh;
 }
 .font{
   font-size: 11px;
@@ -102,6 +102,7 @@
 .abouts{
   margin-bottom: 22px;
 }
+
 
 }
 
@@ -128,7 +129,7 @@
 
 @media (min-width: 765px) and (max-width: 1080px) {
   .msh {
-      font-size: 2.3rem; /* Medium-large screens */
+      font-size: 2.3rem; 
   }
   .round{
     width:20rem;
@@ -136,13 +137,32 @@
   }
   .blobs{
     height: 75%;
-    width: 75%;
+    width: 90%;
  }
  .hometext{
-  height: 45vh;
+  height: 50vh;
+}
+}
+@media (min-width: 1300px) and (max-width: 1500px) {
+  .msh {
+      font-size: 4.3rem; 
+  }
+  .round{
+    width:20rem;
+    height: 20rem;
+  }
+  .blobs{
+    height: 75%;
+    width: 65%;
+ }
+ .hometext{
+  height: 65vh;
+}
 }
 
-}
+
+
+
 
 .patil27 {
   animation: mshpatil 2s ease-in-out , colorChange 5s 4s ease-in-out infinite;
@@ -173,6 +193,87 @@
     color: rgb(215, 147, 245);
   }
 }
+
+.floating-logo {
+    position: absolute;
+    width: 40px;
+    opacity: 0;
+    animation: float 5s ease-in-out infinite, glow 35s infinite;
+}
+
+/* Each logo glows 5s apart */
+.logo1 {
+    top: 28%;
+    left: 15%;
+    animation-delay: 0s, 0s;
+    width: 20px;
+}
+.logo2 {
+    top: 58%;
+    left: 80%;
+    animation-delay: 0s, 5s;
+    width: 25px;
+}
+.logo3 {
+    top: 5%;
+    left: 40%;
+    animation-delay: 0s, 10s;
+    width: 20px;
+}
+.logo4 {
+    top: 40%;
+    left: 60%;
+    animation-delay: 0s, 15s;
+    width: 20px;
+}
+.logo5 {
+    top: 14%;
+    left: 85%;
+    animation-delay: 0s, 20s;
+    width: 20px;
+}
+.logo6 {
+    top: 25%;
+    left: 30%;
+    animation-delay: 0s, 25s;
+    width: 25px;
+}
+.logo7 {
+    top: 50%;
+    left: 70%;
+    animation-delay: 0s, 30s;
+    width: 22px;
+}
+@keyframes glow {
+    0%, 15%, 100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    20%, 40% {
+        opacity: 0.7;
+        visibility: visible;
+    }
+    45%, 100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+
+
 
 
 

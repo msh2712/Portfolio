@@ -1,4 +1,3 @@
-
 export const scrollToSection = (sectionId) => {
     console.log(`Trying to scroll to section with ID: ${sectionId}`);
     const section = document.getElementById(sectionId);

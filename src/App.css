@@ -281,6 +281,6 @@ html {
   }
 
   a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent */
+    text-decoration: none; 
+    color: inherit; 
   }

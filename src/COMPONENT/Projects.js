@@ -1,16 +1,14 @@
-import React from 'react'
 import './../CSSFILE/Project.css'
 import { TiWeatherSunny } from "react-icons/ti";
 import { BsCart4 } from "react-icons/bs";
 import { PiQuestionMarkBold } from "react-icons/pi";
 import Button from './Button';
 
-
 function Projects() {
     const cards = [
-        { id: 1, projectname: "ECOMMERCE", backText: [<TiWeatherSunny/>] , des:"Built with React JS, Redux Toolkit, and Bootstrap, enhancing functionality with advanced state management and a responsive UI" , button:""  },
-        { id: 2, projectname: "WEATHER", backText: [<BsCart4/>] , des :"Developed a weather application using React JS, custom CSS, and a cartoon-style design to provide real-time weather information"},
-        { id: 3, projectname: "QUIZ", backText: [<PiQuestionMarkBold/>] , des:"Created a static quiz website using React JS and custom CSS, offering an interactive and visually appealing quiz experience" },
+        { id: 1, projectname: "ECOMMERCE", backText: [<TiWeatherSunny/>] , des:"Built with React JS, Redux Toolkit, and Bootstrap, enhancing functionality with advanced state management and a responsive UI" , url: '' },
+        { id: 2, projectname: "WEATHER", backText: [<BsCart4/>] , des :"Developed a weather application using React JS, custom CSS, and a cartoon-style design to provide real-time weather information" , url: 'https://waether-msh.vercel.app/'},
+        { id: 3, projectname: "QUIZ", backText: [<PiQuestionMarkBold/>] , des:"Created a static quiz website using React JS and custom CSS, offering an interactive and visually appealing quiz experience"  , url : 'https://quiz-msh.vercel.app/'},
     ];
 
     return (
@@ -35,9 +33,9 @@ function Projects() {
                                 <div className='w-100 h-75 m-4 d-flex flex-column justify-content-center align-items-center'>
                                     <p>{card.projectname}</p>
                                     <span className='text-center des mb-4'>{card.des}</span>
-                                    { card.button === undefined ?
-                                        <Button text={"VISIT"} />
-                                        : ''
+                                    { card.url !== '' ? (
+                                        <a href={card.url}> <Button text={"VISIT"} /></a> )
+                                        : ('')
                                     }
                                     
                                     </div>

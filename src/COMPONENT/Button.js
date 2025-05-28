@@ -6,10 +6,9 @@ function Button({text}) {
 
     const handleClick = () => {
         setIsAnimating(true);
-        setTimeout(() => setIsAnimating(false), 750);
-    };
+        setTimeout(() => setIsAnimating(false), 750);}
     return (
-        <button className={` bubbly-button ${isAnimating ? 'animate' : ''}`} onClick={handleClick}>{text}</button>
+    <button className={` bubbly-button ${isAnimating ? 'animate' : ''}`} onClick={handleClick}>{text}</button>
     )
 }
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import './../CSSFILE/About.css'
 import Button from './Button'
 import { scrollToSection } from './../utils/scrollToSection'; 
