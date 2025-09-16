@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdLocalPhone } from 'react-icons/md';
 import { TfiEmail } from 'react-icons/tfi';
-import Button from './Button';
+import Button from './Button'; // Make sure this component exists
 import emailjs from 'emailjs-com';
 
 function Contact() {
-
   const [statusMessage, setStatusMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
-  })
+  });
+
   const [errors, setErrors] = useState({
     name: '',
     email: '',
@@ -24,6 +24,7 @@ function Contact() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     let errorMessage = '';
+
     if (name === 'name' && !value) {
       errorMessage = 'Name is required';
     } else if (name === 'email' && (!value || !/\S+@\S+\.\S+/.test(value))) {
@@ -33,64 +34,70 @@ function Contact() {
     } else if (name === 'message' && !value) {
       errorMessage = 'Message cannot be empty';
     }
+
     setErrors({
       ...errors,
       [name]: errorMessage
     });
+
     setFormData({
       ...formData,
       [name]: value
     });
   };
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    console.log(e.target);
-
-
-    if (validateForm()) {
-      emailjs
-        .sendForm(
-          'service_mshpatil369',
-          'template_yfldk0l',
-          e.target,
-          'pSN148DRDskq6iLhL'
-        )
-        .then(
-          (result) => {
-            setStatusMessage('Message sent successfully!');
-          },
-          (error) => {
-            setStatusMessage('Failed to send message. Please try again later.');
-          }
-        );
-    }
-  };
-
   const validateForm = () => {
-    let formErrors = {};
+    const newErrors = {};
     let isValid = true;
 
     if (!formData.name) {
-      formErrors.name = 'Name is required';
+      newErrors.name = 'Name is required';
       isValid = false;
     }
     if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
-      formErrors.email = 'Valid email is required';
+      newErrors.email = 'Valid email is required';
       isValid = false;
     }
     if (!formData.subject) {
-      formErrors.subject = 'Subject is required';
+      newErrors.subject = 'Subject is required';
       isValid = false;
     }
     if (!formData.message) {
-      formErrors.message = 'Message cannot be empty';
+      newErrors.message = 'Message cannot be empty';
       isValid = false;
     }
 
-    setErrors(formErrors);
+    setErrors(newErrors);
     return isValid;
   };
+
+ const sendEmail = (e) => {
+  e.preventDefault();
+
+  if (!validateForm()) return;
+
+  emailjs
+    .sendForm(
+      'service_mshpatil369',        // ✅ Your service ID
+      'template_yfldk0l',           // ✅ Your template ID
+      e.target,
+      'M3OABC_R5Dwawkdpn'           // ✅ Your public key (user ID)
+    )
+    .then(
+      (result) => {
+        setStatusMessage('✅ Message sent successfully!');
+        alert('✅ Your form was submitted successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setErrors({});
+      },
+      (error) => {
+        console.error('EmailJS error:', error);
+        setStatusMessage('❌ Failed to send message. Please try again later.');
+        alert('❌ Failed to submit the form. Please try again later.');
+      }
+    );
+};
+
 
   return (
     <section id='contact'>
@@ -102,22 +109,23 @@ function Contact() {
         <div className='mx-5 mt-5 px-md-5'>
           <div className='container'>
             <div className='row gy-4'>
+              {/* Contact Info */}
               <div className='col-lg-4'>
-                <div className=' aboutss d-flex'>
+                <div className='aboutss d-flex'>
                   <FaLocationDot className='fs-4 me-3 me-lg-3 ' />
                   <div>
                     <h6 className='myname'>Address</h6>
-                    <p className='info'>Navagam dindoli udhana surat</p>
+                    <p className='info'>Navagam Dindoli, Udhna, Surat</p>
                   </div>
                 </div>
-                <div className=' aboutss mt-2 mt-md-4 d-flex'>
+                <div className='aboutss mt-2 mt-md-4 d-flex'>
                   <MdLocalPhone className='fs-4  me-3 me-lg-3' />
                   <div>
                     <h6 className='myname'>Call Us</h6>
                     <p className='info'>+91 7069999594</p>
                   </div>
                 </div>
-                <div className=' aboutss mt-2 mt-md-4 d-flex'>
+                <div className='aboutss mt-2 mt-md-4 d-flex'>
                   <TfiEmail className='fs-4 me-3 me-lg-3' />
                   <div>
                     <h6 className='myname'>Email Us</h6>
@@ -125,6 +133,8 @@ function Contact() {
                   </div>
                 </div>
               </div>
+
+              {/* Contact Form */}
               <div className='col-lg-8'>
                 <form
                   onSubmit={sendEmail}
@@ -141,52 +151,58 @@ function Contact() {
                         placeholder='Your Name'
                         value={formData.name}
                         onChange={handleChange}
-                        style={{ borderColor: errors.name ? 'blue' : '' }} 
                       />
                       {errors.name && <div className='invalid-feedback'>{errors.name}</div>}
                     </div>
+
                     <div className='col-md-6 mb-3'>
                       <input
                         type='email'
-                        className={`aboutss form-control ${errors.email ? 'is-invalid' : ''}`}
                         name='email'
+                        className={`form-control aboutss ${errors.email ? 'is-invalid' : ''}`}
                         placeholder='Your Email'
                         value={formData.email}
                         onChange={handleChange}
-                        style={{ borderColor: errors.email ? 'blue' : '' }} 
                       />
                       {errors.email && <div className='invalid-feedback'>{errors.email}</div>}
                     </div>
+
                     <div className='col-md-12 mb-3'>
                       <input
                         type='text'
-                        className={`aboutss form-control ${errors.subject ? 'is-invalid' : ''}`}
                         name='subject'
+                        className={`form-control aboutss ${errors.subject ? 'is-invalid' : ''}`}
                         placeholder='Subject'
                         value={formData.subject}
                         onChange={handleChange}
-                        style={{ borderColor: errors.subject ? 'blue' : '' }} 
                       />
                       {errors.subject && <div className='invalid-feedback'>{errors.subject}</div>}
                     </div>
+
                     <div className='col-md-12 mb-3'>
                       <textarea
-                        className={`aboutss form-control ${errors.message ? 'is-invalid' : ''}`}
                         name='message'
+                        className={`form-control aboutss ${errors.message ? 'is-invalid' : ''}`}
                         rows={6}
                         placeholder='Message'
                         value={formData.message}
                         onChange={handleChange}
-                        style={{ borderColor: errors.message ? 'blue' : '' }} 
                       />
                       {errors.message && <div className='invalid-feedback'>{errors.message}</div>}
                     </div>
+
                     <div className='col-md-12 text-center mt-3'>
                       <Button text={'Send Message'} />
                     </div>
+
+                    {/* Status Message */}
+                    {statusMessage && (
+                      <div className='col-md-12 text-center mt-3'>
+                        <p>{statusMessage}</p>
+                      </div>
+                    )}
                   </div>
                 </form>
-
               </div>
             </div>
           </div>
