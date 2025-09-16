@@ -76,13 +76,13 @@ function Contact() {
 
   if (!validateForm()) return;
 
-  emailjs
-    .sendForm(
-      'service_mshpatil369!',        // ✅ Your service ID
-      'template_yfldk0l',           // ✅ Your template ID
-      e.target,
-      'M3OABC_R5Dwawkdpn'           // ✅ Your public key (user ID)
-    )
+  emailjs.sendForm(
+  'service_mshpatil369',        // ✅ Must include 'service_' prefix
+  'template_yfldk0l',
+  e.target,
+  'M3OABC_R5Dwawkdpn'           // ✅ Public Key
+)
+
     .then(
       (result) => {
         setStatusMessage('✅ Message sent successfully!');
