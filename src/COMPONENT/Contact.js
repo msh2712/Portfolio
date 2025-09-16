@@ -79,7 +79,7 @@ function Contact() {
     if (!validateForm()) return;
 
     emailjs.sendForm(
-      'service_mshpatil369',
+      'service_mshpatil2712!',
       'template_mv6stws',
       e.target,            // Use e.target (the form element)
       'M3OABC_R5Dwawkdpn'
