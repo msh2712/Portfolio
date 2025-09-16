@@ -78,7 +78,7 @@ function Contact() {
 
   emailjs
     .sendForm(
-      'service_mshpatil369',        // ✅ Your service ID
+      'service_mshpatil369!',        // ✅ Your service ID
       'template_yfldk0l',           // ✅ Your template ID
       e.target,
       'M3OABC_R5Dwawkdpn'           // ✅ Your public key (user ID)
