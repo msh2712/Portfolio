@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdLocalPhone } from 'react-icons/md';
 import { TfiEmail } from 'react-icons/tfi';
-import Button from './Button'; // Make sure this component exists
+import Button from './Button';  // Your existing Button component
 import emailjs from 'emailjs-com';
 
 function Contact() {
@@ -71,18 +71,19 @@ function Contact() {
     return isValid;
   };
 
- const sendEmail = (e) => {
-  e.preventDefault();
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-  if (!validateForm()) return;
+    console.log('Form element:', e.target);  // Debug: Should print the <form> element
 
-  emailjs.sendForm(
-  'service_mshpatil369',        // ✅ Must include 'service_' prefix
-  'template_yfldk0l',
-  e.target,
-  'M3OABC_R5Dwawkdpn'           // ✅ Public Key
-)
+    if (!validateForm()) return;
 
+    emailjs.sendForm(
+      'service_mshpatil369',
+      'template_yfldk0l',
+      e.target,            // Use e.target (the form element)
+      'M3OABC_R5Dwawkdpn'
+    )
     .then(
       (result) => {
         setStatusMessage('✅ Message sent successfully!');
@@ -96,8 +97,7 @@ function Contact() {
         alert('❌ Failed to submit the form. Please try again later.');
       }
     );
-};
-
+  };
 
   return (
     <section id='contact'>
