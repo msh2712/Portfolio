@@ -94,6 +94,7 @@ function Contact() {
       (error) => {
         console.error('EmailJS error:', error);
         setStatusMessage('❌ Failed to send message. Please try again later.');
+        console.log(error)
         alert('❌ Failed to submit the form. Please try again later.');
       }
     );
