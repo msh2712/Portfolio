@@ -80,7 +80,7 @@ function Contact() {
 
     emailjs.sendForm(
       'service_mshpatil369',
-      'template_yfldk0l',
+      'template_mv6stws',
       e.target,            // Use e.target (the form element)
       'M3OABC_R5Dwawkdpn'
     )
