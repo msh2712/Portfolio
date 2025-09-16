@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdLocalPhone } from 'react-icons/md';
 import { TfiEmail } from 'react-icons/tfi';
-import Button from './Button'; // Make sure this component exists
+import Button from './Button'; // Ensure this exists
 import emailjs from 'emailjs-com';
 
 function Contact() {
@@ -14,36 +14,20 @@ function Contact() {
     message: ''
   });
 
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    let errorMessage = '';
-
-    if (name === 'name' && !value) {
-      errorMessage = 'Name is required';
-    } else if (name === 'email' && (!value || !/\S+@\S+\.\S+/.test(value))) {
-      errorMessage = 'Valid email is required';
-    } else if (name === 'subject' && !value) {
-      errorMessage = 'Subject is required';
-    } else if (name === 'message' && !value) {
-      errorMessage = 'Message cannot be empty';
-    }
-
-    setErrors({
-      ...errors,
-      [name]: errorMessage
-    });
 
     setFormData({
       ...formData,
       [name]: value
     });
+
+    // Optional: Clear error on change
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: '' });
+    }
   };
 
   const validateForm = () => {
@@ -71,33 +55,42 @@ function Contact() {
     return isValid;
   };
 
- const sendEmail = (e) => {
-  e.preventDefault();
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-  if (!validateForm()) return;
+    if (!validateForm()) return;
 
-  emailjs.sendForm(
-  'service_mshpatil369',        // ✅ Must include 'service_' prefix
-  'template_yfldk0l',
-  e.target,
-  'M3OABC_R5Dwawkdpn'           // ✅ Public Key
-)
+    const currentTime = new Date().toLocaleString();
 
-    .then(
-      (result) => {
-        setStatusMessage('✅ Message sent successfully!');
-        alert('✅ Your form was submitted successfully!');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setErrors({});
-      },
-      (error) => {
-        console.error('EmailJS error:', error);
-        setStatusMessage('❌ Failed to send message. Please try again later.');
-        alert('❌ Failed to submit the form. Please try again later.');
-      }
-    );
-};
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      time: currentTime,
+    };
 
+    emailjs
+      .send(
+        'service_mshpatil369',       // Service ID
+        'template_yfldk0l',          // Template ID
+        templateParams,
+        'M3OABC_R5Dwawkdpn'          // Public Key
+      )
+      .then(
+        (result) => {
+          setStatusMessage('✅ Message sent successfully!');
+          alert('✅ Your form was submitted successfully!');
+          setFormData({ name: '', email: '', subject: '', message: '' });
+          setErrors({});
+        },
+        (error) => {
+          console.error('EmailJS error:', error);
+          setStatusMessage('❌ Failed to send message. Please try again later.');
+          alert('❌ Failed to submit the form. Please try again later.');
+        }
+      );
+  };
 
   return (
     <section id='contact'>
@@ -195,7 +188,6 @@ function Contact() {
                       <Button text={'Send Message'} />
                     </div>
 
-                    {/* Status Message */}
                     {statusMessage && (
                       <div className='col-md-12 text-center mt-3'>
                         <p>{statusMessage}</p>
